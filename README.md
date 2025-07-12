@@ -17,10 +17,21 @@ El problema del productor-consumidor (también conocido como *bounded-buffer pro
 - **Consumidor(es)**: Toman datos del buffer para procesarlos.
 - **Buffer compartido**: Zona de almacenamiento con capacidad limitada.
 
-<p align="center">
-  <img src="https://www.netmentor.es/imagen/effab1d1-f759-4ecd-a4aa-e8f2f4ca09c6.jpg" width="500" alt="Diagrama Productor-Consumidor">
-</p>
-Fuente de la imagen del diagrama [NetMentor](https://www.netmentor.es/entrada/patron-productor-consumidor)
+```mermaid
+flowchart LR
+    %% Productor
+    P[Productor] -- pone --> B[("Buffer 🔒
+    (Sincronizado)")]
+    
+    %% Múltiples Consumidores
+    B -- obtiene --> C1[Consumidor 1]
+    B -- obtiene --> C2[Consumidor 2] 
+    B -- obtiene --> C3[Consumidor 3]
+    
+    %% Estilos
+    style P fill:#2ecc71,color:white
+    style B fill:#3498db,color:white,stroke:#2980b9
+```
 
 ## 🛠️ Solución implementada
 
